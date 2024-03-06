@@ -8,23 +8,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         String[][] maze = getMaze("src/maze");
-        int pastRow = 0;
-        int pastCol = 0;
-
-        for (int row = 0; row < maze.length; row++) {
-            pastRow = row;
-            for (int col = 0; col < maze[0].length; col++) {
-                pastCol = col;
-                if (maze[pastRow][col].equals(".")){
-                    System.out.print(pastRow + "," + col + " ");
-                }
-                else if (maze[row][pastCol].equals(".")){
-                    System.out.print(row + "," + pastCol + " ");
-
-                }
-
-            }
-        }
+        MazeSolver newMaze = new MazeSolver(maze);
+        System.out.print("0, 0 ");
+        newMaze.walk();
     }
     public static String[][] getMaze(String fileName) {
         File f = new File(fileName);
